@@ -84,7 +84,7 @@ def usps_zip_finder(fakeindex, address, city, state):
         var3 = address.find("State").text
         var4 = address.find("Zip5").text
         
-    output = {'fakeindex': fakeindex, 'address': var1, 'city' : var2, 'state': var3, 'zip':var4}
+    output = {'fakeindex': fakeindex, 'address': var1, 'city' : var2, 'state': var3, 'zip_estimated':var4}
     output = pd.DataFrame(data=output, index=[0])
         
     return output
@@ -113,7 +113,7 @@ final = pd.concat(output_final)
 
 
 
-
+final.to_csv('fake_addresses_output.csv', index=False)
 
 
 
